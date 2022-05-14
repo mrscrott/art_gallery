@@ -1,5 +1,6 @@
 import { Config, Pagination } from 'src/app/shared/shared.model';
 
+// just clone some of dto from api doc.
 export class ImageDto {
     alt_artist_ids: any[] = [];
     alt_classification_ids: string[] = [];
@@ -191,7 +192,7 @@ export interface GetImagesResponse {
     config: Config;
     data: ImageDto[];
     info: Info;
-    pagination: Pagination;
+    pagination: Pagination; // for common class name I usually use Prefix Like AgPagination
 }
 export interface GetImagesRequest {
     limit: number;

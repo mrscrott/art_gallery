@@ -7,6 +7,7 @@ import { GetImagesRequest, GetImagesResponse, ImageDto } from '../model/gallery.
 @Injectable({
     providedIn: 'root'
 })
+// in real life I separate api service from module service
 export class GalleryService {
     constructor(private http: HttpClient) {}
     getImages(req: GetImagesRequest): Observable<GetImagesResponse> {

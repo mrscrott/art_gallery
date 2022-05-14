@@ -58,7 +58,7 @@ export class GalleryComponent implements OnInit {
 
     ngOnInit(): void {
         this.galleryForm.get('sort')?.valueChanges.subscribe((data) => {
-            this.searchSubject$.next(true);
+            this.searchSubject$.next(true); // subject may be too redundance but in case we use filter to BE and use some debounce function
         });
         this.galleryForm.get('filter')?.valueChanges.subscribe((data: string[]) => {
             if (data.length > 0) {
@@ -90,6 +90,7 @@ export class GalleryComponent implements OnInit {
                             //     image.image_id = 'test failed'; // this is for stimulate fail image
                             // }
                             image.description = AgImage.setDescription(
+                                // we can create pipe or use condition in html but it will execute more times than this
                                 item.place_of_origin,
                                 item.date_start,
                                 item.date_end
@@ -98,6 +99,7 @@ export class GalleryComponent implements OnInit {
                                 item.material_titles ?? []
                             );
                             item.style_titles.forEach((title) => {
+                                // we can use reduce function to reduce lines and more clean
                                 if (tempFilters[title]) {
                                     tempFilters[title] += 1;
                                 } else {
@@ -106,7 +108,7 @@ export class GalleryComponent implements OnInit {
                             });
                             return image;
                         });
-                        this.currentimages = JSON.parse(JSON.stringify(this.images));
+                        this.currentimages = JSON.parse(JSON.stringify(this.images)); // usually don't use this ways but don't want to install more lib (usually use immer or lodash-es)
                         for (const key in tempFilters) {
                             if (Object.prototype.hasOwnProperty.call(tempFilters, key)) {
                                 const count = tempFilters[key];

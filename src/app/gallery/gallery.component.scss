@@ -59,13 +59,13 @@
 }
 .gallery__image-description {
     grid-area: description;
-    font-size: 0.75rem;
     color: #a6a2a2;
+    font-size: 0.75rem;
 }
 .gallery__image-material {
-    font-size: 0.75rem;
-    color: #a6a2a2;
     grid-area: material;
+    font-size: 0.75rem;
+    color: #a6a2a2; // for typography we can use aquilla theme to apply;
 }
 .gallery__pagination {
     justify-content: center;
