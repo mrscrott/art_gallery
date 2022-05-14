@@ -1,0 +1,73 @@
+.gallery__container {
+    height: 100%;
+    width: 100%;
+}
+.gallery__header {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+.gallery__option {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.gallery__option-item {
+    width: 36rem;
+    padding-right: 2rem;
+}
+.gallery__image-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+.gallery__image-item {
+    display: grid;
+    grid-template-areas:
+        'image'
+        'title'
+        'artist'
+        'description'
+        'material';
+    width: 24rem;
+    border-radius: 1rem;
+    border: 1px solid #32869c;
+    padding: 1rem;
+    grid-auto-rows: max-content;
+    grid-row: 0.5rem;
+}
+.image__display {
+    width: 22rem;
+}
+
+.gallery__image {
+    grid-area: image;
+}
+.gallery__image-title {
+    font-weight: bold;
+    margin-top: 1rem;
+    grid-area: title;
+}
+.gallery__image-artist {
+    grid-area: artist;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+.gallery__image-description {
+    grid-area: description;
+    font-size: 0.75rem;
+    color: #a6a2a2;
+}
+.gallery__image-material {
+    font-size: 0.75rem;
+    color: #a6a2a2;
+    grid-area: material;
+}
+.gallery__pagination {
+    justify-content: center;
+    display: flex;
+}

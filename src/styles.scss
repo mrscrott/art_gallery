@@ -1,0 +1,20 @@
+@import '@angular/cdk/overlay-prebuilt.css';
+@import '@angular/cdk/a11y-prebuilt.css';
+html,
+body {
+    height: 100%;
+}
+body {
+    background: #0f2a3d;
+    margin: 0;
+}
+
+.ag__spinner {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+}
+#ag__modal--spinner {
+    background: none;
+    box-shadow: none;
+}

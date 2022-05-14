@@ -1,0 +1,69 @@
+<div class="gallery__container">
+    <div class="gallery__header">
+        {{ title }}
+    </div>
+    <div class="gallery__option" [formGroup]="galleryForm">
+        <div class="gallery__option-item">
+            <nx-formfield nxLabel="Filter:" appearance="auto">
+                <nx-multi-select
+                    placeholder="Style"
+                    formControlName="filter"
+                    [options]="filters"
+                    [selectLabel]="selectLabel"
+                    [selectValue]="selectValue"
+                ></nx-multi-select>
+            </nx-formfield>
+        </div>
+        <div class="gallery__option-item">
+            <nx-formfield nxLabel="Sort by:" appearance="auto">
+                <nx-dropdown formControlName="sort" placeholder="Sort">
+                    <nx-dropdown-item *ngFor="let sort of sorts" [nxValue]="sort.value">
+                        {{ sort.label }}
+                    </nx-dropdown-item>
+                </nx-dropdown>
+            </nx-formfield>
+        </div>
+    </div>
+    <div class="gallery__image-list">
+        <ng-container *ngFor="let item of currentimages">
+            <div class="gallery__image-item">
+                <div class="gallery__image">
+                    <img
+                        [src]="iifLink + '/' + item.image_id + '/' + imagePostFix"
+                        alt=""
+                        (error)="errorImage($event)"
+                        class="image__display"
+                    />
+                </div>
+                <div class="gallery__image-title">
+                    {{ item?.title }}
+                </div>
+                <div class="gallery__image-artist">
+                    {{ item?.artist_title }}
+                </div>
+                <div class="gallery__image-description">
+                    {{ item?.description }}
+                </div>
+                <div class="gallery__image-material">
+                    {{ item?.displayMaterial }}
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<div class="gallery__pagination">
+    <nx-pagination
+        [nxCount]="count"
+        [nxPage]="page"
+        [nxPerPage]="perPage"
+        nxType="advanced"
+        (nxGoPrev)="prevPage()"
+        (nxGoNext)="nextPage()"
+        (nxGoPage)="goToPage($event)"
+    >
+    </nx-pagination>
+</div>
+
+<ng-template #template>
+    <nx-spinner class="ag__spinner" nxSize="large"></nx-spinner>
+</ng-template>
