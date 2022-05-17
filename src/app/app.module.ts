@@ -14,6 +14,7 @@ import { NxInputModule } from '@aposin/ng-aquila/input';
 import { NxSpinnerModule } from '@aposin/ng-aquila/spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NxModalModule } from '@aposin/ng-aquila/modal';
+import { GalleryService } from './gallery/service/gallery.service';
 
 @NgModule({
     declarations: [AppComponent, GalleryComponent],
@@ -30,9 +31,10 @@ import { NxModalModule } from '@aposin/ng-aquila/modal';
         ReactiveFormsModule,
         FormsModule,
         NxSpinnerModule,
-        NxModalModule
+        NxModalModule,
+        GalleryService
     ],
-    exports: [NxDropdownModule, NxExpertModule],
+    exports: [NxDropdownModule, NxExpertModule, GalleryService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
